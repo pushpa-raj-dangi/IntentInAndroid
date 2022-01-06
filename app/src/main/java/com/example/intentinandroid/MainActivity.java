@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button getPhNo;
+    private Button getPhNo,call;
     private TextView renderNum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         getPhNo = findViewById(R.id.getPhNo);
         renderNum = findViewById(R.id.renderNum);
+        call = findViewById(R.id.call);
+
+        if(renderNum.getText().toString() == null)
+        {
+            call.setEnabled(true);
+
+        }
 
 
         getPhNo.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +41,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                String p = "tel:" + renderNum.getText().toString();
+
+
+                callIntent.setData(Uri.parse(p));
+                startActivity(callIntent);
+
+            }
+        });
 
     }
 

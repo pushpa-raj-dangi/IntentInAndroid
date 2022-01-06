@@ -13,16 +13,32 @@
         android:textStyle="bold|italic"
         android:id="@+id/renderNum"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:background="#EC3030"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_below="@+id/renderNum"
-        android:backgroundTint="@color/purple_500"
-        android:text="Get Phone Number"
-        android:id="@+id/getPhNo"
-        />
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00BFA5"
+            android:text="Get Phone Number"
+            android:layout_margin="10dp"
+
+            android:id="@+id/getPhNo"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint= "#AFB42B"
+            android:layout_margin="10dp"
+            android:text="Call"
+            android:id="@+id/call"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>
