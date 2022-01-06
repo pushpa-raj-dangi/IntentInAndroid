@@ -26,11 +26,7 @@ public class MainActivity extends AppCompatActivity {
         renderNum = findViewById(R.id.renderNum);
         call = findViewById(R.id.call);
 
-        if(renderNum.getText().toString() == null)
-        {
-            call.setEnabled(true);
 
-        }
 
 
         getPhNo.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,200);
             }
         });
+
 
 
 
@@ -66,7 +63,12 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 200 && resultCode == RESULT_OK)
         {
             String num  = data.getStringExtra("number");
-            Log.e("msg",num);
+            if(num.length() > 0)
+            {
+                call.setEnabled(true);
+
+            }
+
             renderNum.setText(num);
 
         }
